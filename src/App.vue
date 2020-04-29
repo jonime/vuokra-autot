@@ -1,28 +1,25 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <CarList :cars="cars" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import CarList from './components/CarList.vue';
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
-  }
-}
+    CarList,
+  },
+  data() {
+    return {
+      cars: [],
+    };
+  },
+  async mounted() {
+    const { cars } = await fetch('/api/cars').then((r) => r.json());
+    this.$data.cars = cars;
+  },
+};
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
