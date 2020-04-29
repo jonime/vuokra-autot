@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <CarCard v-for="car in cars" :key="car.id" :car="car" />
-  </div>
+  <v-row class="mb-6">
+    <v-col v-for="car in cars" :key="car.id" :lg="3" :md="4" :sm="6">
+      <CarCard :car="car" />
+    </v-col>
+  </v-row>
 </template>
 
 <script>

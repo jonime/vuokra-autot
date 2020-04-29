@@ -1,11 +1,17 @@
 <template>
-  <div>
-    <a :href="car.link" rel="noopener noreferrer" target="_blank">
-      <img :src="car.image" />
-
+  <v-card
+    link
+    :href="car.link"
+    rel="noopener noreferrer"
+    target="_blank"
+    class="pa-2"
+    tile
+  >
+    <v-img :src="car.image" />
+    <v-card-text class="text--primary">
       {{ car.name }}
-    </a>
-  </div>
+    </v-card-text>
+  </v-card>
 </template>
 
 <script>

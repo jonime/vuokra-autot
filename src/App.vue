@@ -1,7 +1,8 @@
 <template>
-  <div id="app">
+  <v-container id="app" fluid>
+    <h1 class="display-4">Vuokrattavat autot</h1>
     <CarList :cars="cars" />
-  </div>
+  </v-container>
 </template>
 
 <script>
@@ -23,3 +24,12 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif; /* this was it */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+}
+</style>
