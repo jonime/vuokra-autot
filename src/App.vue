@@ -1,8 +1,11 @@
 <template>
-  <v-container id="app" fluid>
-    <h1 class="display-4">Vuokrattavat autot</h1>
-    <CarList :cars="cars" />
-  </v-container>
+  <v-app>
+    <v-content>
+      <v-container class="fill-height" fluid>
+        <h1 class="display-1">Vuokrattavat autot</h1>
+        <CarList :cars="cars" /></v-container
+    ></v-content>
+  </v-app>
 </template>
 
 <script>
@@ -24,12 +27,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif; /* this was it */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-}
-</style>
