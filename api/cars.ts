@@ -49,6 +49,8 @@ export default async (req: NowRequest, res: NowResponse) => {
     )
     .get();
 
+  res.setHeader('Cache-Control', 's-maxage=3600');
+
   res.json({
     cars,
   });
