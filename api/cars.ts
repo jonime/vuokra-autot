@@ -21,6 +21,13 @@ export default async (req: NowRequest, res: NowResponse) => {
   const $ = cheerio.load(data.result.html);
 
   const cars: Car[] = Array.from($('ul.tc-carlist li')).map(li => {
+    const [, imageId] =
+      (
+        $(li)
+          .find('img')
+          .attr('src') ?? ''
+      ).match(/(\d+\/\d+\/\d)+\.jpg$/) ?? [];
+
     return {
       id: $(li).attr('id')!,
       name: $(li)
@@ -31,11 +38,7 @@ export default async (req: NowRequest, res: NowResponse) => {
           $(li)
             .find('a')
             .attr('href') ?? '',
-      image:
-        'https://www.vaihtoplus.fi' +
-          $(li)
-            .find('img')
-            .attr('src') ?? '',
+      image: imageId ? `/api/image?id=${imageId}` : null,
     };
   });
 
