@@ -26,28 +26,24 @@ export default async (req: NowRequest, res: NowResponse) => {
 
   const $ = cheerio.load(data.result.html);
 
-  const cars: Car[] = $('ul.tc-carlist li')
-    .map(
-      (i, li): Car => {
-        return {
-          id: $(li).attr('id')!,
-          name: $(li)
-            .find('strong')
-            .text(),
-          link:
-            'https://www.vaihtoplus.fi' +
-              $(li)
-                .find('a')
-                .attr('href') ?? '',
-          image:
-            'https://www.vaihtoplus.fi' +
-              $(li)
-                .find('img')
-                .attr('src') ?? '',
-        };
-      }
-    )
-    .get();
+  const cars: Car[] = Array.from($('ul.tc-carlist li')).map(li => {
+    return {
+      id: $(li).attr('id')!,
+      name: $(li)
+        .find('strong')
+        .text(),
+      link:
+        'https://www.vaihtoplus.fi' +
+          $(li)
+            .find('a')
+            .attr('href') ?? '',
+      image:
+        'https://www.vaihtoplus.fi' +
+          $(li)
+            .find('img')
+            .attr('src') ?? '',
+    };
+  });
 
   res.setHeader('Cache-Control', 's-maxage=3600');
 

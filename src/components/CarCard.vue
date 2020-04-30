@@ -1,5 +1,5 @@
 <template>
-  <v-card link :href="car.link" rel="noopener noreferrer" target="_blank" class="pa-2" tile raised>
+  <v-card link :href="car.link" rel="noopener noreferrer" target="_blank" tile raised>
     <v-img :src="car.image" aspect-ratio="1.5">
       <template v-slot:placeholder>
         <v-sheet color="grey" height="100%">
