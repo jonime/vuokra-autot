@@ -2,9 +2,6 @@ import { NowRequest, NowResponse } from '@now/node';
 import fetch from 'node-fetch';
 import sharp from 'sharp';
 
-const imageUrl =
-  'https://www.vaihtoplus.fi/cufs/0x0/.cropsize=402,268,c/pub/vaihtoautot/media/20/7375/1.jpg';
-
 export default async (req: NowRequest, res: NowResponse) => {
   const useWebp = req.headers.accept?.includes('image/webp');
 
