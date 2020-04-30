@@ -1,13 +1,7 @@
 import { NowRequest, NowResponse } from '@now/node';
 import fetch from 'node-fetch';
 import cheerio from 'cheerio';
-
-export interface Car {
-  id: string;
-  name: string;
-  image: string;
-  link: string;
-}
+import { Car } from 'types/Car';
 
 export default async (req: NowRequest, res: NowResponse) => {
   const response = await fetch(

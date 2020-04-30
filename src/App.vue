@@ -8,7 +8,10 @@
         </template>
         <template v-else>
           <v-row class="fill-height ma-0" align="center" justify="center">
-            <v-progress-circular indeterminate color="grey"></v-progress-circular>
+            <v-progress-circular
+              indeterminate
+              color="grey"
+            ></v-progress-circular>
           </v-row>
         </template>
       </v-container>
@@ -16,22 +19,25 @@
   </v-app>
 </template>
 
-<script>
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
 import CarList from './components/CarList.vue';
 
-export default {
-  name: 'app',
+@Component({
   components: {
     CarList,
   },
+})
+export default class App extends Vue {
   data() {
     return {
       cars: null,
     };
-  },
+  }
+
   async mounted() {
     const { cars } = await fetch('/api/cars').then(r => r.json());
     this.$data.cars = cars;
-  },
-};
+  }
+}
 </script>

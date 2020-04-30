@@ -6,14 +6,17 @@
   </v-row>
 </template>
 
-<script>
-import CarCard from './CarCard';
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+import CarCard from './CarCard.vue';
+import { Car } from 'types/Car';
 
-export default {
-  name: 'CarList',
-  props: { cars: Array },
+@Component({
   components: {
     CarCard,
   },
-};
+})
+export default class CarList extends Vue {
+  @Prop() private cars!: Car[];
+}
 </script>
