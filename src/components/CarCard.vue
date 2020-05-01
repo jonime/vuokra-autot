@@ -5,7 +5,7 @@
     rel="noopener noreferrer"
     target="_blank"
     tile
-    raised
+    :raised="hover"
   >
     <v-img :src="car.image" aspect-ratio="1.5">
       <template v-slot:placeholder>
@@ -32,5 +32,6 @@ import { Car } from 'types/Car';
 @Component
 export default class CarCard extends Vue {
   @Prop() private car!: Car;
+  @Prop() private hover!: boolean;
 }
 </script>

@@ -1,8 +1,7 @@
 <template>
   <v-app>
     <v-content>
-      <v-container class="fill-height">
-        <h1 class="display-1">Vuokrattavat autot</h1>
+      <v-container class="fill-height pa-8" style="max-width: 1200px">
         <template v-if="cars">
           <CarList class="fill-height" :cars="cars" />
         </template>
