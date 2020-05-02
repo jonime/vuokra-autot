@@ -3,4 +3,6 @@ export interface Car {
   name: string;
   image: string | null;
   link: string;
+  year: string;
+  odometer: string;
 }

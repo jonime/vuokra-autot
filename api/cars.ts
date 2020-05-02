@@ -39,6 +39,12 @@ export default async (req: NowRequest, res: NowResponse) => {
             .find('a')
             .attr('href') ?? '',
       image: imageId ? `/api/image?id=${imageId}` : null,
+      year: $(li)
+        .find('span.info > span:nth-child(1) > span:nth-child(1)')
+        .text(),
+      odometer: $(li)
+        .find('span.info > span:nth-child(1) > span:nth-child(3)')
+        .text(),
     };
   });
 

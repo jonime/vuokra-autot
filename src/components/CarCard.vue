@@ -19,9 +19,14 @@
         </v-sheet>
       </template>
     </v-img>
-    <v-card-text class="text--primary text-truncate">{{
-      car.name
-    }}</v-card-text>
+    <v-card-text class="text--primary text-truncate">
+      {{ car.name }}<br />
+
+      <v-row no-gutters class="grey--text text--darken-5">
+        <v-col>{{ car.year }}</v-col>
+        <v-col class="text-right">{{ car.odometer }}</v-col>
+      </v-row>
+    </v-card-text>
   </v-card>
 </template>
 
