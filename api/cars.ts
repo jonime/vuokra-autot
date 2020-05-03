@@ -25,12 +25,9 @@ export default async (req: NowRequest, res: NowResponse) => {
       .find('a')
       .attr('href');
 
-    const [, imageId] =
-      (
-        $(li)
-          .find('img')
-          .attr('src') ?? ''
-      ).match(/(\d+\/\d+\/\d)+\.jpg$/) ?? [];
+    const image = $(li)
+      .find('img')
+      .attr('src');
 
     return {
       id: $(li).attr('id')!,
@@ -38,7 +35,7 @@ export default async (req: NowRequest, res: NowResponse) => {
         .find('strong')
         .text(),
       link: link ? `https://www.vaihtoplus.fi${link}` : null,
-      image: imageId ? `/api/image?id=${imageId}` : null,
+      image: image ? `https://www.vaihtoplus.fi${image}` : null,
       year: $(li)
         .find('span.info > span:nth-child(1) > span:nth-child(1)')
         .text(),
