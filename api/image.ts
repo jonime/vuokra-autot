@@ -11,7 +11,7 @@ export default async (req: NowRequest, res: NowResponse) => {
   }
 
   res.setHeader('Content-type', 'image/jpeg');
-  res.setHeader('Cache-Control', 'max-age=2592000, public');
+  res.setHeader('Cache-Control', 's-max-age=2592000');
 
   request(
     `https://www.vaihtoplus.fi/cufs2/0x0/.cropsize=402,268,c/pub/vaihtoautot/media/${id}.jpg`
