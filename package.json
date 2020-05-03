@@ -10,11 +10,12 @@
   },
   "dependencies": {
     "@now/node": "^1.5.1",
+    "@types/request": "^2.48.4",
     "cheerio": "^1.0.0-rc.3",
     "core-js": "^3.6.4",
     "node-fetch": "^2.6.0",
     "register-service-worker": "^1.7.1",
-    "sharp": "^0.25.2",
+    "request": "^2.88.2",
     "vue": "^2.6.10",
     "vue-property-decorator": "^8.4.1",
     "vuetify": "^2.2.11"
