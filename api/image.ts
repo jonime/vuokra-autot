@@ -1,5 +1,5 @@
 import { NowRequest, NowResponse } from '@now/node';
-import request from 'request';
+import fetch from 'node-fetch';
 
 export default async (req: NowRequest, res: NowResponse) => {
   const { id } = req.query;
@@ -13,7 +13,9 @@ export default async (req: NowRequest, res: NowResponse) => {
   res.setHeader('Content-type', 'image/jpeg');
   res.setHeader('Cache-Control', 's-max-age=2592000');
 
-  request(
+  const buffer = await fetch(
     `https://www.vaihtoplus.fi/cufs2/0x0/.cropsize=402,268,c/pub/vaihtoautot/media/${id}.jpg`
-  ).pipe(res);
+  ).then(r => r.buffer());
+
+  res.write(buffer);
 };
